@@ -1,0 +1,595 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #111111;
+}
+
+
+h1{
+  font-family: "Lobster", cursive;
+}
+
+.Home_nav .navbar-brand {
+  color: #999999;
+  font-family: "Lobster", cursive;
+  font-size: 1.5rem;
+  transition: all 0.5s;
+}
+
+.Home_nav .navbar-brand:hover {
+  color: #555555;
+}
+
+.Home_nav .nav-link {
+  color: #999999;
+  font-family: "Lobster", cursive;
+  transition: all 0.5s;
+}
+.Home_nav .nav-link:hover {
+  color: #555555;
+}
+
+.Home {
+  margin-top: 12rem;
+  color: white;
+}
+
+.ELslam {
+  font-family: "Lemonada";
+}
+
+.Home .title {
+  animation: fadeInLeft 1s ease-in-out;
+  animation-delay: 0.5s;
+}
+
+.Home .title p {
+  color: #999999;
+  font-family: "Lobster", cursive;
+}
+.Home .img {
+  animation: fadeInRight 1s ease-in-out;
+  animation-delay: 0.5s;
+}
+
+.Home .img img {
+  width: 350px;
+  height: 390px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  margin-bottom: 500px;
+  cursor: pointer;
+  transition: all 0.5s;
+  overflow: hidden;
+  filter: brightness(1.1) blur(1px);
+}
+
+.Home .img img:hover {
+  filter: brightness(1) blur(0px);
+  transform: scale(1.1015, 1.1015) rotate(3deg);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  animation: pulseGlow 1.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 255, 250, 1);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(255, 2550, 250, 0.5);
+  }
+}
+
+.btn {
+  color: #555555;
+  background-color: #999999 !important;
+  transition: all 0.5s;
+  z-index: 5;
+}
+
+.btn:hover {
+  color: #111111;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px) translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.typewriter {
+  font-family: "Lobster", cursive;
+  font-size: 28px;
+  color: #999999;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #999;
+  width: 0;
+  animation: typing 8s steps(30) infinite, blink 0.7s infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0ch;
+    content: "";
+  }
+  10% {
+    width: 14ch;
+    content: "Web Developer";
+  }
+  25% {
+    width: 0ch;
+  }
+
+  35% {
+    width: 20ch;
+    content: "MEAN Stack Developer";
+  }
+  50% {
+    width: 0ch;
+  }
+
+  60% {
+    width: 17ch;
+    content: "Angular Developer";
+  }
+  75% {
+    width: 0ch;
+  }
+
+  85% {
+    width: 11ch;
+    content: "Programmer";
+  }
+  100% {
+    width: 0ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid gray;
+  position: fixed;
+  background-color: transparent;
+  transform: translate(10%, 10%);
+  z-index: 99999;
+}
+
+.Skills {
+  padding: 4rem 0;
+  background-color: #111111;
+  text-align: center;
+}
+
+.Skills h1 {
+  font-family: "Lobster", cursive;
+  letter-spacing: 2px;
+}
+
+.skill-btn {
+  background-color: #999999 !important;
+  color: #111111;
+  font-family: "Lobster", cursive;
+  font-size: 1.1rem;
+  padding: 10px 25px;
+  transition: all 0.4s ease;
+  border: none;
+  min-width: 150px;
+}
+
+.skill-btn:hover {
+  background-color: #555555 !important;
+  color: white;
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-btn {
+    font-size: 1rem;
+    padding: 8px 20px;
+    margin: 8px;
+  }
+}
+
+.fab {
+  background: none !important;
+  color: black;  
+  border: none;
+  box-shadow: none;
+}
+
+.skill-btn {
+  opacity: 0;
+  background-color: #999999 !important;
+  color: #111111 !important;
+  border: none;
+  transition: all 0.4s ease;
+}
+ 
+.skill-btn.show {
+  animation: fadeInSkill 1s ease forwards;
+  background-color: #999999 !important;
+  color: #111111 !important;
+}
+
+.skill-btn:hover {
+  background-color: #555555 !important;
+  color: white !important;
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+/* .marquee .fab {
+  color: #555555;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: all 0.5s;
+} */
+
+.marquee i {
+  cursor: pointer;
+  color: #777; /* اللون الثابت */
+  font-size: 2.5rem;
+  margin: 0 1.5rem;
+  transition: all 0.4s ease;
+}
+
+/* تأثير الـ hover لكل أيقونة */
+.fa-html5:hover {
+  color: #e34c26;
+  filter: drop-shadow(0 0 8px #e34c26);
+}
+
+.fa-css3-alt:hover {
+  color: #264de4;
+  filter: drop-shadow(0 0 8px #264de4);
+}
+
+.fa-js:hover {
+  color: #f7df1e;
+  filter: drop-shadow(0 0 8px #f7df1e);
+}
+
+.fa-angular:hover {
+  color: #dd1b16;
+  filter: drop-shadow(0 0 8px #dd1b16);
+}
+
+.fa-bootstrap:hover {
+  color: #563d7c;
+  filter: drop-shadow(0 0 8px #563d7c);
+}
+
+.fa-facebook:hover {
+  color: #1877f2;
+  filter: drop-shadow(0 0 8px #1877f2);
+}
+
+.fa-node-js:hover {
+  color: #3c873a;
+  filter: drop-shadow(0 0 8px #3c873a);
+}
+
+.fa-youtube:hover {
+  color: #ff0000;
+  filter: drop-shadow(0 0 8px #ff0000);
+}
+
+.fa-github:hover {
+  color: #ffffff;
+  filter: drop-shadow(0 0 8px #ffffff);
+}
+
+.fa-git-alt:hover {
+  color: #f34f29;
+  filter: drop-shadow(0 0 8px #f34f29);
+}
+
+.fa-spotify:hover {
+  color: #1db954;
+  filter: drop-shadow(0 0 8px #1db954);
+}
+
+.fa-bars-progress:hover {
+  color: #00bcd4;
+  filter: drop-shadow(0 0 8px #00bcd4);
+}
+
+.fa-database:hover {
+  color: #009688;
+  filter: drop-shadow(0 0 8px #009688);
+}
+
+.fa-linkedin:hover {
+  color: #0077b5;
+  filter: drop-shadow(0 0 8px #0077b5);
+}
+
+.fa-google:hover {
+  color: #ffffff;
+  filter: drop-shadow(0 0 8px #b4b4b4);
+}
+
+
+@keyframes fadeInSkill {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* تأخيرات متتابعة */
+.skill-btn:nth-child(1) { animation-delay: 0.2s; }
+.skill-btn:nth-child(2) { animation-delay: 0.4s; }
+.skill-btn:nth-child(3) { animation-delay: 0.6s; }
+.skill-btn:nth-child(4) { animation-delay: 0.8s; }
+.skill-btn:nth-child(5) { animation-delay: 1s; }
+.skill-btn:nth-child(6) { animation-delay: 1.2s; }
+.skill-btn:nth-child(7) { animation-delay: 1.4s; }
+.skill-btn:nth-child(8) { animation-delay: 1.6s; }
+.skill-btn:nth-child(9) { animation-delay: 1.8s; }
+
+
+ /* الكروت عامة */
+.card {
+  opacity: 0;               /* مخفية أولاً */
+  transform: translateX(0);
+  font-family: "Lobster", cursive;
+  transition: all 1s ease-out;
+}
+
+/* fade in from left */
+.fadeInLeft {
+  animation: fadeInLeftAnim 1s forwards;
+}
+
+/* fade in from right */
+.fadeInRight {
+  animation: fadeInRightAnim 1s forwards;
+}
+
+@keyframes fadeInLeftAnim {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRightAnim {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.card {
+  opacity: 0; /* يبدأ مخفي */
+  transform: translateX(0);
+  transition: all 1s ease-out;
+}
+
+.fadeInLeft {
+  animation: fadeInLeftAnim 1s forwards;
+}
+
+.fadeInRight {
+  animation: fadeInRightAnim 1s forwards;
+}
+
+@keyframes fadeInLeftAnim {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRightAnim {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+#Stats{
+  padding-top: 150px;
+  padding-bottom: 250px;
+}
+
+
+.Stats {
+  color: white;
+  font-family: "Lobster", cursive;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Lobster", cursive;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.stat-number.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+#Contact{
+padding-bottom: 250px;
+}
+
+
+.Massage{
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+
+.Massage label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#contactForm input,
+#contactForm textarea {
+  background: #777;
+  border: 1px solid #999;
+  color: #999999;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #999;
+  box-shadow: 0 0 5px #999999;
+}
+
+
+
+/* Title */
+.Massage h1 {
+  /* font-size: 3rem; */
+  font-weight: 800;
+  text-shadow: 0 0 15px #999;
+}
+
+/* Form container */
+#contactForm {
+  /* background: rgba(255, 255, 255, 0.03); */
+  padding: 30px;
+  border-radius: 15px;
+
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+}
+
+/* Labels */
+.Massage label {
+  color: #ddd;
+  font-size: 1.1rem;
+  font-family: "Lobster", cursive;
+}
+
+/* Inputs + TextArea */
+#contactForm input,
+#contactForm textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #999999;
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+  color: #999;
+}
+
+/* On Focus */
+#contactForm input:focus,
+#contactForm textarea:focus {
+  border-color: #999999;
+  box-shadow: 0 0 10px rgba(0, 140, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Error messages */
+.text-danger {
+  font-size: 0.9rem;
+  margin-top: 3px;
+}
+
+ 
+ 
+
+/* Success message */
+#successMsg {
+  text-shadow: 0 0 8px rgba(0,255,0,0.6);
+}
+
+
+/* Fade-in animation */
+@keyframes fadeInForm {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to the form container */
+.form {
+  opacity: 0;
+  animation: fadeInForm 0.9s ease forwards;
+  animation-play-state: paused;
+}
+
+
+
+
+.line{
+  width: 100%;
+  height: 1px;
+  background-color: #222;
+  margin-bottom: 50px;
+}
