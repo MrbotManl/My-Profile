@@ -48,7 +48,7 @@ h1{
   color: #999999;
   font-family: "Lobster", cursive;
 }
-.Home .img {
+.Home .img img{
   animation: fadeInRight 1s ease-in-out;
   animation-delay: 0.5s;
 }
@@ -59,7 +59,7 @@ h1{
   object-fit: cover;
   object-position: center;
   border-radius: 10px;
-  margin-bottom: 500px;
+  margin-bottom: 250px;
   cursor: pointer;
   transition: all 0.5s;
   overflow: hidden;
@@ -601,7 +601,11 @@ padding-bottom: 250px;
       }
     }
     @media screen and (300px <= width <= 992px) {
-       .Home.img img{
-        padding-top: 500px;
+       .My_photo{
+        margin-top: 100px;
+        
+       }
+       .My_photo img{
+        width: 300px;
        }
     }
