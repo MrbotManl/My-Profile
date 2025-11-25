@@ -593,3 +593,15 @@ padding-bottom: 250px;
   background-color: #222;
   margin-bottom: 50px;
 }
+
+
+    @media screen and (412px <= width <= 992px) {
+      .card{
+        width: 18rem !important;
+      }
+    }
+    @media screen and (412px <= width <= 992px) {
+       .Home.img{
+        padding-top: 50px;
+       }
+    }
