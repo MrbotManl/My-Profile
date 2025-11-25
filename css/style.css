@@ -595,13 +595,13 @@ padding-bottom: 250px;
 }
 
 
-    @media screen and (412px <= width <= 992px) {
+    @media screen and (300px <= width <= 992px) {
       .card{
         width: 18rem !important;
       }
     }
-    @media screen and (412px <= width <= 992px) {
-       .Home.img{
-        padding-top: 50px;
+    @media screen and (300px <= width <= 992px) {
+       .Home.img img{
+        padding-top: 500px;
        }
     }

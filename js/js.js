@@ -180,9 +180,9 @@ observer3.observe(massageSection);
 
 
 
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-});
+// document.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+// });
 
 
 document.addEventListener("keydown", (e) => {
