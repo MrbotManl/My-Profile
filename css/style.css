@@ -2,18 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #111111;
 }
 
+body {
+  background-color: #111111;
+  font-family: 'Inter', sans-serif;
+}
 
-h1{
-  font-family: "Lobster", cursive;
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
 }
 
 .Home_nav .navbar-brand {
   color: #999999;
-  font-family: "Lobster", cursive;
-  font-size: 1.5rem;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 1.8rem;
   transition: all 0.5s;
 }
 
@@ -23,9 +28,11 @@ h1{
 
 .Home_nav .nav-link {
   color: #999999;
-  font-family: "Lobster", cursive;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   transition: all 0.5s;
 }
+
 .Home_nav .nav-link:hover {
   color: #555555;
 }
@@ -36,7 +43,7 @@ h1{
 }
 
 .ELslam {
-  font-family: "Lemonada";
+  font-family: 'Alexandria', sans-serif;
 }
 
 .Home .title {
@@ -46,11 +53,7 @@ h1{
 
 .Home .title p {
   color: #999999;
-  font-family: "Lobster", cursive;
-}
-.Home .img img{
-  animation: fadeInRight 1s ease-in-out;
-  animation-delay: 0.5s;
+  font-family: 'Inter', sans-serif;
 }
 
 .Home .img img {
@@ -63,25 +66,44 @@ h1{
   cursor: pointer;
   transition: all 0.5s;
   overflow: hidden;
-  filter: brightness(1.1) blur(1px);
+  filter: brightness(1);
+  animation: photoEntrance 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
 }
 
 .Home .img img:hover {
-  filter: brightness(1) blur(0px);
-  transform: scale(1.1015, 1.1015) rotate(3deg);
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-  animation: pulseGlow 1.5s infinite;
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+  filter: brightness(1.1);
+}
+
+@keyframes photoEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg) translateX(50px) translateY(-50px);
+    filter: brightness(0.5) blur(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg) translateX(0) translateY(0);
+    filter: brightness(1) blur(0px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
 }
 
 @keyframes pulseGlow {
   0% {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   }
+
   50% {
-    box-shadow: 0 0 35px rgba(255, 255, 250, 1);
+    box-shadow: 0 0 35px rgba(255, 255, 255, 1);
   }
+
   100% {
-    box-shadow: 0 0 15px rgba(255, 2550, 250, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -102,6 +124,7 @@ h1{
     opacity: 0;
     transform: translateX(-50px) translateY(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -113,6 +136,7 @@ h1{
     opacity: 0;
     transform: translateX(50px) translateY(-50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -120,8 +144,9 @@ h1{
 }
 
 .typewriter {
-  font-family: "Lobster", cursive;
-  font-size: 28px;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 32px;
   color: #999999;
   white-space: nowrap;
   overflow: hidden;
@@ -135,10 +160,12 @@ h1{
     width: 0ch;
     content: "";
   }
+
   10% {
     width: 14ch;
     content: "Web Developer";
   }
+
   25% {
     width: 0ch;
   }
@@ -147,6 +174,7 @@ h1{
     width: 20ch;
     content: "MEAN Stack Developer";
   }
+
   50% {
     width: 0ch;
   }
@@ -155,6 +183,7 @@ h1{
     width: 17ch;
     content: "Angular Developer";
   }
+
   75% {
     width: 0ch;
   }
@@ -163,6 +192,7 @@ h1{
     width: 11ch;
     content: "Programmer";
   }
+
   100% {
     width: 0ch;
   }
@@ -192,56 +222,27 @@ h1{
 }
 
 .Skills h1 {
-  font-family: "Lobster", cursive;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
   letter-spacing: 2px;
 }
 
-.skill-btn {
-  background-color: #999999 !important;
-  color: #111111;
-  font-family: "Lobster", cursive;
-  font-size: 1.1rem;
-  padding: 10px 25px;
-  transition: all 0.4s ease;
-  border: none;
-  min-width: 150px;
-}
-
-.skill-btn:hover {
-  background-color: #555555 !important;
-  color: white;
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .skill-btn {
-    font-size: 1rem;
-    padding: 8px 20px;
-    margin: 8px;
-  }
-}
-
-.fab {
-  background: none !important;
-  color: black;  
-  border: none;
-  box-shadow: none;
-}
-
+/* Skill buttons - consolidated styles */
 .skill-btn {
   opacity: 0;
   background-color: #999999 !important;
   color: #111111 !important;
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 10px 25px;
   border: none;
+  min-width: 150px;
   transition: all 0.4s ease;
 }
- 
+
 .skill-btn.show {
   animation: fadeInSkill 1s ease forwards;
-  background-color: #999999 !important;
-  color: #111111 !important;
 }
 
 .skill-btn:hover {
@@ -250,6 +251,7 @@ h1{
   transform: scale(1.08);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
+
 /* .marquee .fab {
   color: #555555;
   font-size: 2.5rem;
@@ -259,7 +261,8 @@ h1{
 
 .marquee i {
   cursor: pointer;
-  color: #777; /* اللون الثابت */
+  color: #777;
+  /* اللون الثابت */
   font-size: 2.5rem;
   margin: 0 1.5rem;
   transition: all 0.4s ease;
@@ -347,6 +350,7 @@ h1{
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -354,62 +358,52 @@ h1{
 }
 
 /* تأخيرات متتابعة */
-.skill-btn:nth-child(1) { animation-delay: 0.2s; }
-.skill-btn:nth-child(2) { animation-delay: 0.4s; }
-.skill-btn:nth-child(3) { animation-delay: 0.6s; }
-.skill-btn:nth-child(4) { animation-delay: 0.8s; }
-.skill-btn:nth-child(5) { animation-delay: 1s; }
-.skill-btn:nth-child(6) { animation-delay: 1.2s; }
-.skill-btn:nth-child(7) { animation-delay: 1.4s; }
-.skill-btn:nth-child(8) { animation-delay: 1.6s; }
-.skill-btn:nth-child(9) { animation-delay: 1.8s; }
+.skill-btn:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.skill-btn:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.skill-btn:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.skill-btn:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.skill-btn:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.skill-btn:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+.skill-btn:nth-child(7) {
+  animation-delay: 1.4s;
+}
+
+.skill-btn:nth-child(8) {
+  animation-delay: 1.6s;
+}
+
+.skill-btn:nth-child(9) {
+  animation-delay: 1.8s;
+}
 
 
- /* الكروت عامة */
+/* الكروت عامة */
+/* Cards animation */
 .card {
-  opacity: 0;               /* مخفية أولاً */
+  opacity: 0;
   transform: translateX(0);
-  font-family: "Lobster", cursive;
+  font-family: 'Inter', sans-serif;
   transition: all 1s ease-out;
-}
-
-/* fade in from left */
-.fadeInLeft {
-  animation: fadeInLeftAnim 1s forwards;
-}
-
-/* fade in from right */
-.fadeInRight {
-  animation: fadeInRightAnim 1s forwards;
-}
-
-@keyframes fadeInLeftAnim {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeInRightAnim {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-
-.card {
-  opacity: 0; /* يبدأ مخفي */
-  transform: translateX(0);
-  transition: all 1s ease-out;
+  will-change: opacity, transform;
+  background-color: #222;
 }
 
 .fadeInLeft {
@@ -425,6 +419,7 @@ h1{
     opacity: 0;
     transform: translateX(-50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -436,6 +431,7 @@ h1{
     opacity: 0;
     transform: translateX(50px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -444,7 +440,7 @@ h1{
 
 
 
-#Stats{
+#Stats {
   padding-top: 150px;
   padding-bottom: 250px;
 }
@@ -452,13 +448,13 @@ h1{
 
 .Stats {
   color: white;
-  font-family: "Lobster", cursive;
+  font-family: 'Inter', sans-serif;
 }
 
 .stat-number {
-  font-size: 2rem;
-  font-weight: 500;
-  font-family: "Lobster", cursive;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Dancing Script', cursive;
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.8s ease-out;
@@ -471,39 +467,28 @@ h1{
 
 
 
-#Contact{
-padding-bottom: 250px;
+#Contact {
+  padding-bottom: 250px;
 }
 
 
-.Massage{
+.Message {
   padding-top: 150px;
   padding-bottom: 150px;
 }
 
 
-.Massage label {
+.Message label {
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-#contactForm input,
-#contactForm textarea {
-  background: #777;
-  border: 1px solid #999;
-  color: #999999;
-}
 
-#contactForm input:focus,
-#contactForm textarea:focus {
-  border-color: #999;
-  box-shadow: 0 0 5px #999999;
-}
 
 
 
 /* Title */
-.Massage h1 {
+.Message h1 {
   /* font-size: 3rem; */
   font-weight: 800;
   text-shadow: 0 0 15px #999;
@@ -515,15 +500,15 @@ padding-bottom: 250px;
   padding: 30px;
   border-radius: 15px;
 
-  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
 }
 
 /* Labels */
-.Massage label {
+.Message label {
   color: #ddd;
   font-size: 1.1rem;
-  font-family: "Lobster", cursive;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Inputs + TextArea */
@@ -556,12 +541,12 @@ padding-bottom: 250px;
   margin-top: 3px;
 }
 
- 
- 
+
+
 
 /* Success message */
 #successMsg {
-  text-shadow: 0 0 8px rgba(0,255,0,0.6);
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
 }
 
 
@@ -571,6 +556,7 @@ padding-bottom: 250px;
     opacity: 0;
     transform: translateY(25px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -587,7 +573,7 @@ padding-bottom: 250px;
 
 
 
-.line{
+.line {
   width: 100%;
   height: 1px;
   background-color: #222;
@@ -595,14 +581,12 @@ padding-bottom: 250px;
 }
 
 
-    @media screen and (300px <= width <= 992px) {
-      .card{
-        width: 18rem !important;
-      }
-    }
-    @media screen and (300px <= width <= 992px) {
-       .My_photo{
-        margin-top: 100px;
-        
-       }
-    }
+@media screen and (min-width: 300px) and (max-width: 992px) {
+  .card {
+    width: 18rem !important;
+  }
+
+  .My_photo {
+    margin-top: 100px;
+  }
+}

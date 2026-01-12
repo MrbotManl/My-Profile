@@ -1,202 +1,213 @@
-const roles = [
-  "Web Developer",
-  "MEAN Stack Developer",
-  "Angular Developer",
-  "Programmer"
-];
+(function () {
+  'use strict';
 
-let index = 0;
-const typewriter = document.querySelector(".typewriter");
+  // 1. Typewriter Effect
+  const roles = [
+    "Web Developer",
+    "MEAN Stack Developer",
+    "Angular Developer",
+    "Programmer"
+  ];
 
-function changeText() {
-  typewriter.textContent = roles[index];
-  index = (index + 1) % roles.length;
-}
+  let index = 0;
+  const typewriter = document.querySelector(".typewriter");
 
-setInterval(changeText, 2000);
-changeText();
-
-
-// ////////////////////////////////////////////////////////////////////////////////
-
-const skillButtons = document.querySelectorAll(".skill-btn");
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);  
-      }
-    });
-  },
-  { threshold: 0.2 }  
-);
-
-skillButtons.forEach((btn) => observer.observe(btn));
-
-
-// let cursor = document.querySelector(".cursor");
-
-
-// document.body.addEventListener('mousemove', function (eventInfo) {
-//     cursor.style.top=eventInfo.clientY+'px'
-//     cursor.style.left=eventInfo.clientX+'px'
-// });
-
-// ////////////////////////////////////////////////////////////////////////
-document.addEventListener("DOMContentLoaded", function() {
-  const cards = document.querySelectorAll(".card");
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        if(entry.target.classList.contains("card-left")){
-          entry.target.classList.add("fadeInLeft");
-        } else {
-          entry.target.classList.add("fadeInRight");
-        }
-        observer.unobserve(entry.target); // عشان يظهر مرة واحدة  
-      }
-    });
-  }, { threshold: 0.3 }); // يظهر لما 30% من الكرت يكون داخل الشاشة
-
-  cards.forEach(card => observer.observe(card));
-});
-
-
-// //////////////////////////////////////////////////////////////////
-const stats = document.querySelectorAll(".stat-number");
-let started = false; // عشان يشتغل مرة واحدة بس
-
-function startCountUp(el) {
-  const target = +el.getAttribute("data-target");
-  let count = 0;
-  const speed = target / 100; // سرعة العد
-
-  const update = () => {
-    count += speed;
-    if (count < target) {
-      el.textContent = Math.floor(count);
-      requestAnimationFrame(update);
-    } else {
-      el.textContent = target;
+  function changeText() {
+    if (typewriter) {
+      typewriter.textContent = roles[index];
+      index = (index + 1) % roles.length;
     }
-  };
-
-  update();
-}
-
-function handleScroll() {
-  const section = document.querySelector("#Stats");
-  const position = section.getBoundingClientRect().top;
-
-  if (position < window.innerHeight - 100 && !started) {
-    stats.forEach(s => {
-      s.classList.add("visible");
-      startCountUp(s);
-    });
-    started = true;
-  }
-}
-
-window.addEventListener("scroll", handleScroll);
-// //////////////////////////////////////////////////////////////
-
-const form = document.getElementById("contactForm");
-
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  let isValid = true;
-
-  // Name
-  const name = document.getElementById("name");
-  const nameError = document.getElementById("nameError");
-  if (name.value.trim().length < 3) {
-    nameError.classList.remove("d-none");
-    isValid = false;
-  } else {
-    nameError.classList.add("d-none");
   }
 
-  // Phone
-  const phone = document.getElementById("phone");
-  const phoneError = document.getElementById("phoneError");
-  const phoneRegex = /^[0-9]{10,15}$/;
-  if (!phoneRegex.test(phone.value)) {
-    phoneError.classList.remove("d-none");
-    isValid = false;
-  } else {
-    phoneError.classList.add("d-none");
+  // Initial call and interval
+  if (typewriter) {
+    changeText();
+    setInterval(changeText, 2000);
   }
 
-  // Email
-  const email = document.getElementById("email");
-  const emailError = document.getElementById("emailError");
-  const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
-  if (!emailRegex.test(email.value)) {
-    emailError.classList.remove("d-none");
-    isValid = false;
-  } else {
-    emailError.classList.add("d-none");
+
+  // 2. Skill Buttons Observer
+  const skillButtons = document.querySelectorAll(".skill-btn");
+  if (skillButtons.length > 0) {
+    const skillsObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    skillButtons.forEach((btn) => skillsObserver.observe(btn));
   }
 
-  // Message
-  const message = document.getElementById("message");
-  const messageError = document.getElementById("messageError");
-  if (message.value.trim().length < 10) {
-    messageError.classList.remove("d-none");
-    isValid = false;
-  } else {
-    messageError.classList.add("d-none");
-  }
 
-  // Success
-  if (isValid) {
-    document.getElementById("successMsg").classList.remove("d-none");
-    form.reset();
-  }
-});
+  // 3. Document Loaded Actions (Cards Animation)
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".card");
+    if (cards.length > 0) {
+      const cardsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            if (entry.target.classList.contains("card-left")) {
+              entry.target.classList.add("fadeInLeft");
+            } else {
+              entry.target.classList.add("fadeInRight");
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
 
-// Fade-in on scroll
-const massageSection = document.querySelector(".form");
-
-const observer3 = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      // شغّل الأنيميشن
-      massageSection.style.animationPlayState = "running";
-      // توقف المراقبة عشان ما يعيدش الأنيميشن
-      observer3.unobserve(massageSection);
+      cards.forEach(card => cardsObserver.observe(card));
     }
   });
-});
-
-// ابدأ المراقبة
-observer3.observe(massageSection);
 
 
+  // 4. Stats Counter (Refactored to use IntersectionObserver instead of scroll event for performance)
+  const statsSection = document.querySelector("#Stats");
+  const stats = document.querySelectorAll(".stat-number");
+
+  if (statsSection && stats.length > 0) {
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stats.forEach(s => {
+            s.classList.add("visible");
+            startCountUp(s);
+          });
+          observer.unobserve(entry.target); // Run once
+        }
+      });
+    }, { threshold: 0.5 }); // Trigger when 50% visible
+
+    statsObserver.observe(statsSection);
+  }
+
+  function startCountUp(el) {
+    const target = +el.getAttribute("data-target");
+    let count = 0;
+    const speed = target / 100;
+
+    const update = () => {
+      count += speed;
+      if (count < target) {
+        el.textContent = Math.floor(count);
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = target;
+      }
+    };
+
+    requestAnimationFrame(update);
+  }
 
 
+  // 5. Contact Form Validation
+  const form = document.getElementById("contactForm");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
-});
+      let isValid = true;
+
+      // Helper to show/hide error
+      const toggleError = (id, show) => {
+        const el = document.getElementById(id);
+        if (el) el.classList.toggle("d-none", !show);
+      };
+
+      // Name
+      const name = document.getElementById("name");
+      if (name && name.value.trim().length < 3) {
+        toggleError("nameError", true);
+        isValid = false;
+      } else {
+        toggleError("nameError", false);
+      }
+
+      // Phone
+      const phone = document.getElementById("phone");
+      const phoneRegex = /^[0-9]{10,15}$/;
+      if (phone && !phoneRegex.test(phone.value)) {
+        toggleError("phoneError", true);
+        isValid = false;
+      } else {
+        toggleError("phoneError", false);
+      }
+
+      // Email
+      const email = document.getElementById("email");
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (email && !emailRegex.test(email.value)) {
+        toggleError("emailError", true);
+        isValid = false;
+      } else {
+        toggleError("emailError", false);
+      }
+
+      // Message
+      const message = document.getElementById("message");
+      if (message && message.value.trim().length < 10) {
+        toggleError("messageError", true);
+        isValid = false;
+      } else {
+        toggleError("messageError", false);
+      }
+
+      // Success
+      if (isValid) {
+        const successMsg = document.getElementById("successMsg");
+        if (successMsg) successMsg.classList.remove("d-none");
+        form.reset();
+
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          if (successMsg) successMsg.classList.add("d-none");
+        }, 5000);
+      }
+    });
+  }
 
 
-document.addEventListener("keydown", (e) => {
-  // F12
-  if (e.key === "F12") e.preventDefault();
-  
-  // Ctrl+Shift+I / Cmd+Option+I
-  if (e.ctrlKey && e.shiftKey && e.key === "I") e.preventDefault();
-  if (e.metaKey && e.altKey && e.key === "I") e.preventDefault();
+  // 6. Form Fade-in Animation
+  const messageSection = document.querySelector(".form");
+  if (messageSection) {
+    const formObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          messageSection.style.animationPlayState = "running";
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
 
-  // Ctrl+Shift+J / Cmd+Option+J
-  if (e.ctrlKey && e.shiftKey && e.key === "J") e.preventDefault();
-  if (e.metaKey && e.altKey && e.key === "J") e.preventDefault();
+    formObserver.observe(messageSection);
+  }
 
-  // Ctrl+U → view source
-  if (e.ctrlKey && e.key === "u") e.preventDefault();
-});
+
+  // 7. Site Protection (Anti-Inspect)
+  // document.addEventListener("contextmenu", (e) => {
+  //   e.preventDefault();
+  // });
+
+  document.addEventListener("keydown", (e) => {
+    // F12
+    if (e.key === "F12") e.preventDefault();
+
+    // Ctrl+Shift+I / Cmd+Option+I
+    if (e.ctrlKey && e.shiftKey && e.key === "I") e.preventDefault();
+    if (e.metaKey && e.altKey && e.key === "I") e.preventDefault();
+
+    // Ctrl+Shift+J / Cmd+Option+J
+    if (e.ctrlKey && e.shiftKey && e.key === "J") e.preventDefault();
+    if (e.metaKey && e.altKey && e.key === "J") e.preventDefault();
+
+    // Ctrl+U → view source
+    if (e.ctrlKey && e.key === "u") e.preventDefault();
+  });
+
+})();
