@@ -190,9 +190,9 @@
 
 
   // 7. Site Protection (Anti-Inspect)
-  // document.addEventListener("contextmenu", (e) => {
-  //   e.preventDefault();
-  // });
+  document.addEventListener("contextmenu", (e) => {
+    e.preventDefault();
+  });
 
   document.addEventListener("keydown", (e) => {
     // F12
